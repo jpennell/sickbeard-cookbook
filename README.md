@@ -1,4 +1,1 @@
-cookbooks
-=========
-
-Chef cookbooks
+# Chef Cookbooks
