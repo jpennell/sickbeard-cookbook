@@ -5,14 +5,14 @@ Bluepill.application("sickbeard") do |app|
     proc.uid = "<%= node["sickbeard"]["user"] %>"
     proc.gid = "<%= node["sickbeard"]["group"] %>"
 
-    proc.working_dir = "<%= node["sickbeard"]["install_dir"] %>"
-    proc.start_command = "python SickBeard.py -p <%= node["sickbeard"]["port"] %> --config <%= node["sickbeard"]["config_dir"] %>/sickbeard.ini"
+    proc.working_dir = "<%= node["sickbeard"]["directories"]["install"] %>"
+    proc.start_command = "python SickBeard.py -p <%= node["sickbeard"]["port"] %> --config <%= node["sickbeard"]["directories"]["config"] %>/sickbeard.ini"
 
     # We're letting Bluepill daemonize for us
     proc.daemonize = true
 
     # Logging
-    proc.stdout = proc.stderr = "<%= node["sickbeard"]["log_dir"] %>/sickbeard.log"
+    proc.stdout = proc.stderr = "<%= node["sickbeard"]["directories"]["logs"] %>/sickbeard.log"
 
     # Process Monitoring
     proc.checks :cpu_usage, :every => 30.seconds, :below => 85, :times => 10

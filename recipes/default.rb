@@ -15,9 +15,9 @@ end
 # Create directories
 app_dirs = [
   "home/#{node['sickbeard']['user']}",
-  "#{node['sickbeard']['install_dir']}",
-  "#{node['sickbeard']['log_dir']}",
-  "#{node['sickbeard']['config_dir']}"
+  "#{node["sickbeard"]["directories"]["install"]}",
+  "#{node["sickbeard"]["directories"]["logs"]}",
+  "#{node["sickbeard"]["directories"]["config"]}"
 ]
 
 app_dirs.each do |x|
@@ -29,7 +29,8 @@ app_dirs.each do |x|
   end
 end
 
-git node['sickbeard']['install_dir'] do
+# Checkout sickbeard
+git node["sickbeard"]["directories"]["install"] do
   repository node['sickbeard']['git']['url']
   reference node['sickbeard']['git']['tag']
   action :sync

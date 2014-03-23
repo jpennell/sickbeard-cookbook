@@ -6,9 +6,9 @@
 default["sickbeard"]["user"] = 'sickbeard'
 default["sickbeard"]["group"] = 'sickbeard'
 
-default["sickbeard"]["install_dir"] = '/opt/sickbeard'
-default["sickbeard"]["log_dir"] = '/var/log/sickbeard'
-default["sickbeard"]["config_dir"] = '/etc/sickbeard'
+default["sickbeard"]["directories"]["install"] = '/opt/sickbeard'
+default["sickbeard"]["directories"]["logs"] = '/var/log/sickbeard'
+default["sickbeard"]["directories"]["config"] = '/etc/sickbeard'
 
 default["sickbeard"]["port"] = '6001'
 
