@@ -13,13 +13,13 @@ package "util-linux"
 
 # Set up sabnzbd user
 user node['sabnzbd']['user'] do
-  home node['sabnzbd']['install_dir']
   system true
 end
 
 # Create directories
 app_dirs = [
-  "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}",
+  "/home/sabnzbd",
+  "#{node['sabnzbd']['install_dir']}",
   "#{node['sabnzbd']['log_dir']}",
   "#{node['sabnzbd']['config_dir']}",
   "#{node['sabnzbd']['data_dir']}"
@@ -34,27 +34,8 @@ app_dirs.each do |x|
   end
 end
 
-data_dirs = [
-  "complete",
-  "incomplete",
-  "logs",
-  "nzb_backup",
-  "scripts",
-  "templates",
-  "watch"
-]
-
-data_dirs.each do |y|
-  directory "#{node['sabnzbd']['data_dir']}/#{y}" do
-    mode 0755
-    owner node['sabnzbd']['user']
-    group node['sabnzbd']['group']
-    recursive true
-  end
-end
-
 # Download sabnzbd
-remote_file "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz" do
+remote_file "#{node['sabnzbd']['install_dir']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz" do
   source "http://softlayer-ams.dl.sourceforge.net/project/sabnzbdplus/sabnzbdplus/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz"
   user node['sabnzbd']['user']
   group node['sabnzbd']['group']
@@ -63,7 +44,7 @@ end
 # Extract sabnzbd
 bash "extract" do
    code <<-EOS
-   cd #{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}
+   cd #{node['sabnzbd']['install_dir']}
    tar xzvf SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz
    cd --
    EOS
