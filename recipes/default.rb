@@ -30,7 +30,19 @@ app_dirs.each do |x|
   end
 end
 
+# Link current version to "current"
+link "#{node['sabnzbd']['install_dir']}/current" do
+  to "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}"
+end
+
 # Download sabnzbd
 remote_file "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz" do
   source "http://softlayer-ams.dl.sourceforge.net/project/sabnzbdplus/sabnzbdplus/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz"
+end
+
+# Extract sabnzbd
+bash "extract" do
+   code <<-EOS
+   tar xzf #{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz
+   EOS
 end
