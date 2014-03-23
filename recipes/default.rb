@@ -32,7 +32,7 @@ end
 # Checkout sickbeard
 git node["sickbeard"]["directories"]["install"] do
   repository node['sickbeard']['git']['url']
-  reference node['sickbeard']['git']['tag']
+  revision node['sickbeard']['git']['revision']
   action :sync
   user node['sickbeard']['user']
   group node['sickbeard']['group']
