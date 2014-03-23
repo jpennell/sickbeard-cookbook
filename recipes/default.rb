@@ -4,6 +4,7 @@
 #
 
 include_recipe "bluepill"
+include_recipe "git"
 
 package "python-cheetah"
 
