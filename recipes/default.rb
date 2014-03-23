@@ -20,7 +20,7 @@ end
 
 # Create directories
 app_dirs = [
-  "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}"
+  "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}",
   "#{node['sabnzbd']['log_dir']}"
 ]
 
