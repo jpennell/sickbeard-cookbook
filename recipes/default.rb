@@ -55,8 +55,6 @@ link "#{node['sabnzbd']['install_dir']}/current" do
 end
 
 # Set up daemon with bluepill
-include_recipe "bluepill"
-
 template "#{node['bluepill']['conf_dir']}/sabnzbd.pill" do
   source "sabnzbd.pill.erb"
   mode 0644
