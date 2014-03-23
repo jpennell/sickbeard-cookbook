@@ -3,7 +3,6 @@
 # Recipe:: default
 #
 
-package "ruby"
 package "python-cheetah"
 package "python-yenc"
 package "python-openssl"
