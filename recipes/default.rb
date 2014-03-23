@@ -31,7 +31,7 @@ end
 
 git node['sickbeard']['install_dir'] do
   repository node['sickbeard']['git']['url']
-  revision node['sickbeard']['git']['tag']
+  reference node['sickbeard']['git']['tag']
   action :sync
   user node['sickbeard']['user']
   group node['sickbeard']['group']
