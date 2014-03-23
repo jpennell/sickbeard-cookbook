@@ -13,12 +13,13 @@ package "util-linux"
 
 # Set up sabnzbd user
 user node['sabnzbd']['user'] do
+  shell '/bin/bash'
+  home node['sabnzbd']['install_dir']
   system true
 end
 
 # Create directories
 app_dirs = [
-  "/home/sabnzbd",
   "#{node['sabnzbd']['install_dir']}",
   "#{node['sabnzbd']['log_dir']}",
   "#{node['sabnzbd']['config_dir']}",
