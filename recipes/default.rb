@@ -18,7 +18,7 @@ end
 
 # Create directories
 app_dirs = [
-  "#{node['sabnzbd']['install_dir']}"
+  "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}"
 ]
 
 app_dirs.each do |x|
