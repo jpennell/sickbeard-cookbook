@@ -3,13 +3,14 @@
 # Attributes:: default
 #
 
-default["sabnzbd"]["user"] = 'sabnzbd'
-default["sabnzbd"]["group"] = 'sabnzbd'
-default["sabnzbd"]["version"] = '0.7.16'
+default["sickbeard"]["user"] = 'sickbeard'
+default["sickbeard"]["group"] = 'sickbeard'
 
-default["sabnzbd"]["install_dir"] = '/opt/sabnzbd'
-default["sabnzbd"]["log_dir"] = '/var/log/sabnzbd'
-default["sabnzbd"]["config_dir"] = '/etc/sabnzbd'
+default["sickbeard"]["install_dir"] = '/opt/sickbeard'
+default["sickbeard"]["log_dir"] = '/var/log/sickbeard'
+default["sickbeard"]["config_dir"] = '/etc/sickbeard'
 
-default["sabnzbd"]["host"] = '0.0.0.0'
-default["sabnzbd"]["port"] = '6000'
+default["sickbeard"]["port"] = '6001'
+
+default["sickbeard"]["git"]["url"] = "https://github.com/midgetspy/Sick-Beard.git"
+default["sickbeard"]["git"]["tag"] = "build-503"

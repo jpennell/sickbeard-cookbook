@@ -1,18 +1,18 @@
-Bluepill.application("sabnzbd") do |app|
+Bluepill.application("sickbeard") do |app|
 
   app.process("server") do |proc|
 
-    proc.uid = "<%= node["sabnzbd"]["user"] %>"
-    proc.gid = "<%= node["sabnzbd"]["group"] %>"
+    proc.uid = "<%= node["sickbeard"]["user"] %>"
+    proc.gid = "<%= node["sickbeard"]["group"] %>"
 
-    proc.working_dir = "<%= node["sabnzbd"]["install_dir"] %>/SABnzbd-<%= node["sabnzbd"]["version"] %>"
-    proc.start_command = "python SABnzbd.py -s <%= node["sabnzbd"]["host"] %>:<%= node["sabnzbd"]["port"] %> -f <%= node["sabnzbd"]["config_dir"] %>/sabnzbd.ini -b 0 -l 1"
+    proc.working_dir = "<%= node["sickbeard"]["install_dir"] %>"
+    proc.start_command = "python SickBeard.py -p <%= node["sickbeard"]["port"] %> --config <%= node["sickbeard"]["config_dir"] %>/sickbeard.ini"
 
     # We're letting Bluepill daemonize for us
     proc.daemonize = true
 
     # Logging
-    proc.stdout = proc.stderr = "<%= node["sabnzbd"]["log_dir"] %>/sabnzbd.log"
+    proc.stdout = proc.stderr = "<%= node["sickbeard"]["log_dir"] %>/sickbeard.log"
 
     # Process Monitoring
     proc.checks :cpu_usage, :every => 30.seconds, :below => 85, :times => 10
