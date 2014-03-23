@@ -38,11 +38,15 @@ end
 # Download sabnzbd
 remote_file "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz" do
   source "http://softlayer-ams.dl.sourceforge.net/project/sabnzbdplus/sabnzbdplus/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz"
+  user node['sabnzbd']['user']
+  group node['sabnzbd']['group']  
 end
 
 # Extract sabnzbd
 bash "extract" do
    code <<-EOS
-   tar xzf #{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}/SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz
+   cd #{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}
+   tar xzvf SABnzbd-#{node['sabnzbd']['version']}-src.tar.gz
+   cd --
    EOS
 end
