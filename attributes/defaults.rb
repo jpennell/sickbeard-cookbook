@@ -13,4 +13,4 @@ default["sickbeard"]["directories"]["config"] = '/etc/sickbeard'
 default["sickbeard"]["port"] = '6001'
 
 default["sickbeard"]["git"]["url"] = "https://github.com/midgetspy/Sick-Beard.git"
-default["sickbeard"]["git"]["revision"] = "master"
+default["sickbeard"]["git"]["revision"] = "build-503"

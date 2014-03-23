@@ -34,7 +34,6 @@ end
 git node["sickbeard"]["directories"]["install"] do
   repository node['sickbeard']['git']['url']
   revision node['sickbeard']['git']['revision']
-  checkout_branch "master"
   action :sync
   user node['sickbeard']['user']
   group node['sickbeard']['group']
