@@ -8,8 +8,7 @@ package "python-yenc"
 package "python-openssl"
 package "par2"
 package "unrar"
-package "coreutils"
-package "util-linux"
+package "unzip"
 
 # Set up sabnzbd user
 user node['sabnzbd']['user'] do
@@ -53,8 +52,6 @@ end
 template "#{node['bluepill']['conf_dir']}/sabnzbd.pill" do
   source "sabnzbd.pill.erb"
   mode 0644
-  notifies :load, "bluepill_service[sabnzbd]", :immediately
-  notifies :restart, "bluepill_service[sabnzbd]", :immediately
 end
 
 bluepill_service "sabnzbd" do
