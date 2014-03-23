@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+include_recipe "bluepill"
+
 package "python-cheetah"
 package "python-yenc"
 package "python-openssl"
