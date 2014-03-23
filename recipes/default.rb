@@ -50,7 +50,6 @@ end
 # Link current version to "current"
 link "#{node['sabnzbd']['install_dir']}/current" do
   to "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}"
-  notifies :restart, "bluepill_service[sabnzbd]", :immediately
 end
 
 # Set up daemon with bluepill
