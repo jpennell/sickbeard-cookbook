@@ -6,7 +6,7 @@ Bluepill.application("sabnzbd") do |app|
     proc.gid = "<%= node["sabnzbd"]["group"] %>"
 
     proc.working_dir = "<%= node["sabnzbd"]["install_dir"] %>/current/SABnzbd-<%= node["sabnzbd"]["version"]/SABnzbd-<%= node["sabnzbd"]["version"] %>"
-    proc.start_command = "python SABnzbd.py -s <%= node["sabnzbd"]["host"] %>:<%= node["sabnzbd"]["port"] %> /sabnzbd.ini -b 0 -l 1"
+    proc.start_command = "python SABnzbd.py -s <%= node["sabnzbd"]["listen_address"] %>:<%= node["sabnzbd"]["listen_port"] %> -f <%= node["sabnzbd"]["config_dir"] %>/sabnzbd.ini -b 0 -l 1"
 
     # We're letting Bluepill daemonize for us
     proc.daemonize = true

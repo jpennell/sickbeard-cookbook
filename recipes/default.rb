@@ -13,17 +13,39 @@ package "util-linux"
 
 # Set up sabnzbd user
 user node['sabnzbd']['user'] do
+  home node['sabnzbd']['install_dir']
   system true
 end
 
 # Create directories
 app_dirs = [
   "#{node['sabnzbd']['install_dir']}/#{node['sabnzbd']['version']}",
-  "#{node['sabnzbd']['log_dir']}"
+  "#{node['sabnzbd']['log_dir']}",
+  "#{node['sabnzbd']['config_dir']}",
+  "#{node['sabnzbd']['data_dir']}"
 ]
 
 app_dirs.each do |x|
   directory x do
+    mode 0755
+    owner node['sabnzbd']['user']
+    group node['sabnzbd']['group']
+    recursive true
+  end
+end
+
+data_dirs = [
+  "complete",
+  "incomplete",
+  "logs",
+  "nzb_backup",
+  "scripts",
+  "templates",
+  "watch"
+]
+
+data_dirs.each do |y|
+  directory "#{node['sabnzbd']['data_dir']}/#{y}" do
     mode 0755
     owner node['sabnzbd']['user']
     group node['sabnzbd']['group']
