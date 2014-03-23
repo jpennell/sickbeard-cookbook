@@ -1,1 +1,12 @@
-# SABnzbd Chef Cookbook
+Description
+===========
+
+Requirements
+============
+
+Attributes
+==========
+
+Usage
+=====
+
