@@ -18,7 +18,8 @@ app_dirs = [
   "home/#{node['sickbeard']['user']}",
   "#{node["sickbeard"]["directories"]["install"]}",
   "#{node["sickbeard"]["directories"]["logs"]}",
-  "#{node["sickbeard"]["directories"]["config"]}"
+  "#{node["sickbeard"]["directories"]["config"]}",
+  "#{node["sickbeard"]["directories"]["data"]}"
 ]
 
 app_dirs.each do |x|
@@ -37,14 +38,6 @@ git node["sickbeard"]["directories"]["install"] do
   action :sync
   user node['sickbeard']['user']
   group node['sickbeard']['group']
-end
-
-bash "setup.py" do
-  user node['sickbeard']['user']
-  cwd "#{node["sickbeard"]["directories"]["install"]}"
-  code <<-EOH
-  python setup.py install
-  EOH
 end
 
 # Set up daemon with bluepill
