@@ -39,6 +39,14 @@ git node["sickbeard"]["directories"]["install"] do
   group node['sickbeard']['group']
 end
 
+bash "setup.py" do
+  user node['sickbeard']['user']
+  cwd "#{node["sickbeard"]["directories"]["install"]}"
+  code <<-EOH
+  python setup.py install
+  EOH
+end
+
 # Set up daemon with bluepill
 template "#{node['bluepill']['conf_dir']}/sickbeard.pill" do
   source "sickbeard.pill.erb"

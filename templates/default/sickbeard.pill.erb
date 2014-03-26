@@ -6,7 +6,7 @@ Bluepill.application("sickbeard") do |app|
     proc.gid = "<%= node["sickbeard"]["group"] %>"
 
     proc.working_dir = "<%= node["sickbeard"]["directories"]["install"] %>"
-    proc.start_command = "python SickBeard.py -p <%= node["sickbeard"]["port"] %> --config <%= node["sickbeard"]["directories"]["config"] %>/sickbeard.ini"
+    proc.start_command = "python SickBeard.py -p <%= node["sickbeard"]["port"] %> --datadir <%= node["sickbeard"]["directories"]["data"] %> --config <%= node["sickbeard"]["directories"]["config"] %>/sickbeard.ini"
 
     # We're letting Bluepill daemonize for us
     proc.daemonize = true
