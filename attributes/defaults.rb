@@ -14,4 +14,4 @@ default["sickbeard"]["directories"]["data"] = '/vagrant/srv/sickbeard'
 default["sickbeard"]["port"] = '6001'
 
 default["sickbeard"]["git"]["url"] = "https://github.com/midgetspy/Sick-Beard.git"
-default["sickbeard"]["git"]["tag"] = "build-503"
+default["sickbeard"]["git"]["tag"] = "master"
