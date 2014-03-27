@@ -8,8 +8,8 @@ default["sickbeard"]["group"] = 'sickbeard'
 
 default["sickbeard"]["directories"]["install"] = '/opt/sickbeard'
 default["sickbeard"]["directories"]["logs"] = '/var/log/sickbeard'
-default["sickbeard"]["directories"]["config"] = '/vagrant/etc/sickbeard'
-default["sickbeard"]["directories"]["data"] = '/vagrant/srv/sickbeard'
+default["sickbeard"]["directories"]["config"] = '/etc/sickbeard'
+default["sickbeard"]["directories"]["data"] = '/etc/sickbeard'
 
 default["sickbeard"]["port"] = '6001'
 
